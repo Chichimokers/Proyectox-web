@@ -7,6 +7,9 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      firacode: ['var(--font-fira-code)', 'monospace'],
+    },
     extend: {
       colors: {
         background: "var(--background)",

@@ -2,20 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #171717;
+    --font-fira-code: 'Fira Code'; /* Asegurar definición de variable */
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+    }
+  }
+
+  /* Aplicar fuente a todo el cuerpo */
+  body {
+    font-family: var(--font-fira-code), monospace;
+    color: var(--foreground);
+    background: var(--background);
+  }
+
+  /* Estilos específicos para código */
+  code {
+    font-variant-ligatures: contextual;
+    font-feature-settings: 'calt' 1;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Si usas Tailwind y quieres clases personalizadas */
+@layer utilities {
+  .font-firacode {
+    font-family: var(--font-fira-code), monospace;
+  }
 }
